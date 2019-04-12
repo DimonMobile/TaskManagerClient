@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>LoadIndicator.qml</file>
+        <file>ServerCheckingPage.qml</file>
+        <file>AuthorizePage.qml</file>
+        <file>RegistrationPage.qml</file>
+        <file>Constants.js</file>
+        <file>LoadingPopup.qml</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>resources/icons/power.svg</file>
+        <file>resources/icons/download.svg</file>
+        <file>resources/icons/left-arrow.svg</file>
+        <file>resources/icons/language.svg</file>
+        <file>resources/icons/refresh.svg</file>
+    </qresource>
+</RCC>
