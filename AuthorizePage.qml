@@ -53,10 +53,10 @@ Item {
                                     popup.close();
                                     var responseObject = JSON.parse(xr.responseText);
                                     if (responseObject.result === 'success') {
-                                        popupMessageLabel.text = responseObject.user.name;
-                                        popupMessage.open();
+                                        popupMessageLabel.text = responseObject.user.name + "\r\n" + responseObject.user.language;
+                                        //popupMessage.open();
+                                        stackView.push(Qt.createComponent("qrc:/MainPage.qml"));
                                     } else { // handling error
-
                                     }
                                 }
                             }

@@ -8,6 +8,7 @@
         <file>RegistrationPage.qml</file>
         <file>Constants.js</file>
         <file>LoadingPopup.qml</file>
+        <file>MainPage.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file>resources/icons/power.svg</file>
@@ -15,5 +16,9 @@
         <file>resources/icons/left-arrow.svg</file>
         <file>resources/icons/language.svg</file>
         <file>resources/icons/refresh.svg</file>
+        <file>resources/icons/home.svg</file>
+        <file>resources/icons/list.svg</file>
+        <file>resources/icons/message.svg</file>
+        <file>resources/icons/search.svg</file>
     </qresource>
 </RCC>
