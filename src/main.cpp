@@ -1,7 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <translator.h>
+
+#include "include/translator.h"
+#include "include/settings.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,9 +14,11 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     Translator translator(&engine);
+    Settings settings(nullptr);
 
     engine.rootContext()->setContextProperty("Translator", &translator);
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.rootContext()->setContextProperty("Settings", &settings);
+    engine.load(QUrl(QStringLiteral("qrc:/qml/resources/qml/main.qml")));
 
     if (engine.rootObjects().isEmpty())
         return -1;

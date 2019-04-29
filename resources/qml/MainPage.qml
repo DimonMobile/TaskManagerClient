@@ -3,7 +3,90 @@ import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
+
+import 'qrc:/js/resources/js/Utils.js' as Utils;
+import 'qrc:/js/resources/js/Constants.js' as Constants;
+
 Item {
+    Popup {
+        id: projectCreatorPopup
+        focus: true
+        modal: true
+        anchors.centerIn: parent
+        ColumnLayout {
+            RowLayout {
+                Label {
+                    Layout.fillWidth: true
+                    text: qsTr('Name')
+                }
+                TextField {
+                    id: popupProjectName
+                    Layout.preferredWidth: 300
+                    Layout.alignment: Qt.AlignRight
+                }
+            }
+            RowLayout {
+                Label {
+                    text: qsTr('Description')
+                    Layout.fillWidth: true
+                }
+                TextArea {
+                    id: popupProjectDescription
+                    Layout.preferredWidth: 300
+                    Layout.alignment: Qt.AlignRight
+                }
+            }
+            RowLayout {
+                Button{
+                    id: popupAddProjectButton
+                    highlighted: true
+                    text: qsTr('Create')
+                    icon.source: 'qrc:/icons/resources/icons/add-note.svg'
+                    enabled: true
+                    onClicked: {
+                        var hr = new XMLHttpRequest();
+                        hr.open("POST", Constants.HOST_ADDRESS + "/add_project");
+                        hr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                        hr.onreadystatechange = function() {
+                            if (hr.readyState == 4) {
+                                var obj = JSON.parse(hr.responseText);
+                                if (obj.result === "success") {
+                                    popupCreateProjectLabel.color = "green";
+                                    popupCreateProjectLabel.text = "Created";
+                                } else if (obj.result === "error") {
+                                    popupCreateProjectLabel.color = "red";
+                                    popupCreateProjectLabel.text = Constants.getErrorString(obj.error_code);
+                                }
+                                popupCreateProjectLabel.visible = true;
+                                popupProjectIndicator.running = false;
+                                popupAddProjectButton.enabled = true;
+                                Utils.loadProjectsToModel(model, projectListDashboard, projectListDashboardIndicator);
+                            }
+                        }
+
+                        hr.send("token=" + encodeURIComponent(Settings.token()) +
+                                "&name=" + encodeURIComponent(popupProjectName.text) +
+                                "&description=" + encodeURIComponent(popupProjectDescription.text));
+
+                        popupProjectIndicator.running = true;
+                        popupCreateProjectLabel.visible = false;
+
+                        enabled = false;
+                    }
+                }
+                BusyIndicator{
+                    id: popupProjectIndicator
+                    running: false
+                    Layout.fillWidth: true
+                }
+                Label {
+                    id: popupCreateProjectLabel
+                    visible: false
+                }
+            }
+        }
+    }
+
     Page {
         readonly property bool inPortrait: this.width < this.height
 
@@ -38,24 +121,6 @@ Item {
                     Item {
                         ListModel {
                             id: model
-                            ListElement {
-                                name: 'CAD'
-                            }
-                            ListElement {
-                                name: 'Unknown squad'
-                            }
-                            ListElement {
-                                name: 'Kabani 5'
-                            }
-                            ListElement {
-                                name: 'Slish ueba gde mobila'
-                            }
-                            ListElement {
-                                name: 'kek'
-                            }
-                            ListElement {
-                                name: 'kek'
-                            }
                         }
                         Drawer {
                             id: drawer
@@ -83,7 +148,13 @@ Item {
                                     }
                                 }
 
+                                BusyIndicator {
+                                    Layout.fillHeight: true
+                                    Layout.alignment: Qt.AlignCenter
+                                }
+
                                 ListView{
+                                    visible: false
                                     clip: true
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
@@ -112,9 +183,10 @@ Item {
                     }
                     Flickable {
                         clip: true
-                        contentHeight: myFlow.childrenRect.height
+                        contentWidth: myFlow.childrenRect.width
                         ScrollIndicator.vertical: ScrollIndicator{}
                         Flow {
+                            flow: Flow.TopToBottom
                             anchors.fill: parent
                             spacing: 25
                             anchors.margins: 10
@@ -137,21 +209,32 @@ Item {
                                             Layout.fillWidth: true
                                         }
                                         ToolButton{
-                                            text: '+'
+                                            icon.source: 'qrc:/icons/resources/icons/add-note.svg'
                                             Layout.alignment: Qt.AlignRight
+                                            onClicked: projectCreatorPopup.open();
                                         }
                                     }
                                     Rectangle {
                                         height: 2
                                         Layout.fillWidth: true
                                     }
-
+                                    BusyIndicator {
+                                        id: projectListDashboardIndicator
+                                        Layout.fillHeight: true
+                                        Layout.alignment: Qt.AlignCenter
+                                    }
                                     ListView {
+                                        id: projectListDashboard
+                                        visible: false
                                         clip: true
-                                        ScrollIndicator.vertical: ScrollIndicator {}
                                         model: model
+                                        ScrollIndicator.vertical: ScrollIndicator {}
                                         height: 400
                                         Layout.fillWidth: true
+                                        Component.onCompleted: {
+                                            Utils.loadProjectsToModel(model, projectListDashboard, projectListDashboardIndicator);
+                                        }
+
                                         delegate: ItemDelegate {
                                             width: parent.width
                                             text: name
@@ -169,7 +252,7 @@ Item {
                             }
 
                             Rectangle {
-                                color: "#99EEAA"; width: 300; height: childrenRect.height; radius: 10;
+                                color: "#99EE88"; width: 300; height: childrenRect.height; radius: 10;
                                 border {
                                     width: 2;
                                     color: "white";
@@ -203,9 +286,8 @@ Item {
                                     radius: 5
                                 }
                             }
-
                             Rectangle {
-                                color: "#EEAA99"; width: 300; height: childrenRect.height; radius: 10;
+                                color: "#BBDDAA"; width: 300; height: childrenRect.height; radius: 10;
                                 border {
                                     width: 2;
                                     color: "white";
@@ -213,86 +295,38 @@ Item {
 
                                 ColumnLayout {
                                     width: parent.width
-                                    Label {
-                                        Layout.margins: 10
-                                        text: "Bug: program crashes"
-                                        Layout.alignment: Qt.AlignHCenter
+                                    RowLayout{
+                                        Layout.fillWidth: true
+                                        Label {
+                                            Layout.margins: 10
+                                            text: "Assigned to me"
+                                            Layout.fillWidth: true
+                                        }
                                     }
                                     Rectangle {
                                         height: 2
                                         Layout.fillWidth: true
                                     }
-                                    Label {
-                                        Layout.margins: 10
-                                        text: "Short descriptions"
-                                    }
-                                }
-                                layer.enabled: true
-                                layer.effect: DropShadow {
-                                    transparentBorder: true
-                                    horizontalOffset: 3
-                                    verticalOffset: 4
-                                    radius: 5
-                                }
-                            }
 
-                            Rectangle {
-                                color: "#EEAA99"; width: 300; height: childrenRect.height; radius: 10;
-                                border {
-                                    width: 2;
-                                    color: "white";
-                                }
-
-                                ColumnLayout {
-                                    width: parent.width
-                                    Label {
-                                        Layout.margins: 10
-                                        text: "Bug: manager die"
-                                        Layout.alignment: Qt.AlignHCenter
+                                    BusyIndicator {
+                                        Layout.fillHeight: true
+                                        Layout.alignment: Qt.AlignCenter
                                     }
-                                    Rectangle {
-                                        height: 2
+
+                                    ListView {
+                                        visible: false
+                                        clip: true
+                                        ScrollIndicator.vertical: ScrollIndicator {}
+                                        model: model
+                                        height: 400
                                         Layout.fillWidth: true
+                                        delegate: ItemDelegate {
+                                            width: parent.width
+                                            text: name
+                                        }
                                     }
-                                    Label {
-                                        Layout.margins: 10
-                                        text: "This is a more complex description"
-                                    }
-                                }
-                                layer.enabled: true
-                                layer.effect: DropShadow {
-                                    transparentBorder: true
-                                    horizontalOffset: 3
-                                    verticalOffset: 4
-                                    radius: 5
-                                }
-                            }
-
-                            Rectangle {
-                                color: "#99AAEE"; width: 300; height: childrenRect.height; radius: 10;
-                                border {
-                                    width: 2;
-                                    color: "white";
                                 }
 
-                                ColumnLayout {
-                                    width: parent.width
-                                    Label {
-                                        Layout.margins: 10
-                                        text: "New feature: put me"
-                                        Layout.alignment: Qt.AlignHCenter
-                                    }
-                                    Rectangle {
-                                        height: 2
-                                        Layout.fillWidth: true
-                                    }
-                                    Label {
-                                        Layout.margins: 10
-                                        wrapMode: Label.WordWrap
-                                        Layout.fillWidth: true
-                                        text: "AAAA AA long words and many too AAAA AA long words and many too AAAA AA long words and many too AAAA AA long words and many too AAAA AA long words and many too AAAA AA long words and many too"
-                                    }
-                                }
                                 layer.enabled: true
                                 layer.effect: DropShadow {
                                     transparentBorder: true
@@ -317,7 +351,7 @@ Item {
                     }
                     TabButton {
                         width: 200
-                        text: qsTr('My tasks')
+                        text: qsTr('Dashboard')
                         icon.source: 'qrc:/icons/resources/icons/list.svg';
                     }
                 }

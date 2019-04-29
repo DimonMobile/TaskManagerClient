@@ -13,11 +13,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        main.cpp \
-    translator.cpp
+        src/main.cpp \
+        src/translator.cpp \
+        src/settings.cpp
 
 lupdate_only{
-    SOURCES += *.qml
+    SOURCES += resources/qml/*.qml
 }
 
 TRANSLATIONS += tl_en.ts tl_ru.ts
@@ -36,6 +37,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    translator.h
+    include/translator.h \
+    include/settings.h
 
 DISTFILES +=

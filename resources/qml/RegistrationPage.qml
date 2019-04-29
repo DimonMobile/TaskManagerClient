@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 
-import "Constants.js" as Constants;
+import "qrc:/js/resources/js/Constants.js" as Constants;
 
 Page {
     Menu{

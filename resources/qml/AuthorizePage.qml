@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 
-import "Constants.js" as Constants
+import "qrc:/js/resources/js/Constants.js" as Constants
 
 Item {
     LoadingPopup {
@@ -29,12 +29,14 @@ Item {
                 TextField {
                     id: emailTextField
                     placeholderText: qsTr("Email")
+                    text: ''
                     width: 320
                 }
 
                 TextField {
                     id: passwordTextField
                     placeholderText: qsTr("Password")
+                    text: ''
                     echoMode: TextInput.Password
                     width: 320
                 }
@@ -54,8 +56,8 @@ Item {
                                     var responseObject = JSON.parse(xr.responseText);
                                     if (responseObject.result === 'success') {
                                         popupMessageLabel.text = responseObject.user.name + "\r\n" + responseObject.user.language;
-                                        //popupMessage.open();
-                                        stackView.push(Qt.createComponent("qrc:/MainPage.qml"));
+                                        Settings.setToken(responseObject.user.generated_token);
+                                        stackView.push(Qt.createComponent("qrc:/qml/resources/qml/MainPage.qml"));
                                     } else { // handling error
                                     }
                                 }
@@ -70,7 +72,7 @@ Item {
                     }
                     Button {
                         text: qsTr("Sign up")
-                        onClicked: stackView.push(Qt.createComponent("qrc:/RegistrationPage.qml"))
+                        onClicked: stackView.push(Qt.createComponent("qrc:/qml/resources/qml/RegistrationPage.qml"))
                     }
                 }
             }

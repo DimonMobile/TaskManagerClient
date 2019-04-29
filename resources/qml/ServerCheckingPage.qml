@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 
-import "Constants.js" as Constants;
+import "qrc:/js/resources/js/Constants.js" as Constants;
 
 Page{
     function testServer() {
@@ -52,7 +52,7 @@ Page{
         repeat: false
         running: false
         onTriggered: {
-            stackView.push(Qt.createComponent("qrc:/AuthorizePage.qml"));
+            stackView.push(Qt.createComponent("qrc:/qml/resources/qml/AuthorizePage.qml"));
         }
     }
 

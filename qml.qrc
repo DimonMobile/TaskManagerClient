@@ -1,14 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>LoadIndicator.qml</file>
-        <file>ServerCheckingPage.qml</file>
-        <file>AuthorizePage.qml</file>
-        <file>RegistrationPage.qml</file>
-        <file>Constants.js</file>
-        <file>LoadingPopup.qml</file>
-        <file>MainPage.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file>resources/icons/power.svg</file>
@@ -20,5 +12,19 @@
         <file>resources/icons/list.svg</file>
         <file>resources/icons/message.svg</file>
         <file>resources/icons/search.svg</file>
+        <file>resources/icons/add-note.svg</file>
+    </qresource>
+    <qresource prefix="/qml">
+        <file>resources/qml/AuthorizePage.qml</file>
+        <file>resources/qml/LoadIndicator.qml</file>
+        <file>resources/qml/LoadingPopup.qml</file>
+        <file>resources/qml/main.qml</file>
+        <file>resources/qml/MainPage.qml</file>
+        <file>resources/qml/RegistrationPage.qml</file>
+        <file>resources/qml/ServerCheckingPage.qml</file>
+    </qresource>
+    <qresource prefix="/js">
+        <file>resources/js/Constants.js</file>
+        <file>resources/js/Utils.js</file>
     </qresource>
 </RCC>

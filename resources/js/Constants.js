@@ -14,6 +14,10 @@ function getErrorString(index) {
         return qsTr('Passwords are not similar!');
     case 5:
         return qsTr('Invalid email or password.');
+    case 6:
+        return qsTr('This projectname already used!');
+    case 7:
+        return qsTr('Project name must have at least 3 and below 30 symbols');
     default:
         return qsTr('Unexpected error')
     }

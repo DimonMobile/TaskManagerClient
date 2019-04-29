@@ -1,4 +1,4 @@
-#include "translator.h"
+#include "include/translator.h"
 
 #include <QGuiApplication>
 #include <QQmlEngine>
