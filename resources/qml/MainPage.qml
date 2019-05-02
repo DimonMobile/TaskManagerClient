@@ -48,7 +48,7 @@ Item {
                         hr.open("POST", Constants.HOST_ADDRESS + "/add_project");
                         hr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                         hr.onreadystatechange = function() {
-                            if (hr.readyState == 4) {
+                            if (hr.readyState === 4) {
                                 var obj = JSON.parse(hr.responseText);
                                 if (obj.result === "success") {
                                     popupCreateProjectLabel.color = "green";
@@ -85,6 +85,10 @@ Item {
                 }
             }
         }
+    }
+
+    LoadingPopup {
+        id: loadingPopup
     }
 
     Page {
@@ -234,10 +238,38 @@ Item {
                                         Component.onCompleted: {
                                             Utils.loadProjectsToModel(model, projectListDashboard, projectListDashboardIndicator);
                                         }
-
                                         delegate: ItemDelegate {
+                                            onPressAndHold: {
+                                                projectListDashboard.currentIndex = index;
+                                                projectListContextMenu.popup();
+                                            }
                                             width: parent.width
                                             text: name
+                                        }
+                                    }
+                                    Menu {
+                                        id: projectListContextMenu
+                                        MenuItem {
+                                            text: qsTr("Remove")
+                                            onClicked: {
+                                                //projectListDashboard.currentItem.text
+                                                loadingPopup.open();
+                                                var hr = new XMLHttpRequest();
+                                                hr.open("POST", Constants.HOST_ADDRESS + "/remove_project");
+                                                hr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                                hr.onreadystatechange = function() {
+                                                    if (hr.readyState === 4) {
+                                                        loadingPopup.close();
+                                                        var obj = JSON.parse(hr.responseText);
+                                                        if (obj.result === "success") {
+
+                                                        }
+                                                        Utils.loadProjectsToModel(model, projectListDashboard, projectListDashboardIndicator);
+                                                    }
+                                                }
+                                                hr.send("token=" + encodeURIComponent(Settings.token()) +
+                                                        "&project_name=" + encodeURIComponent(projectListDashboard.currentItem.text));
+                                            }
                                         }
                                     }
                                 }
