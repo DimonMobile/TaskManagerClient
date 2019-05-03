@@ -13,6 +13,10 @@
         <file>resources/icons/message.svg</file>
         <file>resources/icons/search.svg</file>
         <file>resources/icons/add-note.svg</file>
+        <file>resources/icons/list-2.svg</file>
+        <file>resources/icons/error.svg</file>
+        <file>resources/icons/lens.svg</file>
+        <file>resources/icons/add-circle.svg</file>
     </qresource>
     <qresource prefix="/qml">
         <file>resources/qml/AuthorizePage.qml</file>
@@ -22,6 +26,7 @@
         <file>resources/qml/MainPage.qml</file>
         <file>resources/qml/RegistrationPage.qml</file>
         <file>resources/qml/ServerCheckingPage.qml</file>
+        <file>resources/qml/Tasks.qml</file>
     </qresource>
     <qresource prefix="/js">
         <file>resources/js/Constants.js</file>

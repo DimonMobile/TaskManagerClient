@@ -51,7 +51,7 @@ Item {
                             var xr = new XMLHttpRequest();
                             xr.open("POST", Constants.HOST_ADDRESS + '/user_data');
                             xr.onreadystatechange = function() {
-                                if (xr.readyState == 4) {
+                                if (xr.readyState === 4) {
                                     popup.close();
                                     var responseObject = JSON.parse(xr.responseText);
                                     if (responseObject.result === 'success') {

@@ -52,7 +52,7 @@ Item {
                                 var obj = JSON.parse(hr.responseText);
                                 if (obj.result === "success") {
                                     popupCreateProjectLabel.color = "green";
-                                    popupCreateProjectLabel.text = "Created";
+                                    popupCreateProjectLabel.text = qsTr("Created");
                                 } else if (obj.result === "error") {
                                     popupCreateProjectLabel.color = "red";
                                     popupCreateProjectLabel.text = Constants.getErrorString(obj.error_code);
@@ -111,6 +111,13 @@ Item {
                     }
                     onClicked: drawer.open()
                 }
+                ToolButton {
+                    icon.source: 'qrc:/icons/resources/icons/list-2.svg';
+                    onClicked: {
+                        stackView.push(Qt.createComponent("qrc:/qml/resources/qml/Tasks.qml"));
+                        drawer.position = 0;
+                    }
+                }
             }
         }
 
@@ -134,7 +141,7 @@ Item {
                             visible: (!page.inPortrait && swipeView.currentIndex == 0) ? true : false
                             modal: (page.inPortrait && swipeView.currentIndex == 0) ? true : false
                             interactive: (page.inPortrait && swipeView.currentIndex == 0) ? true : false
-                            position: page.inPortrait ? 0 : 1
+                            position: (!page.inPortrait && swipeView.currentIndex == 0) ? 1 : 0
                             ColumnLayout {
                                 anchors.fill: parent
                                 RowLayout{
@@ -158,7 +165,7 @@ Item {
                                 }
 
                                 ListView{
-                                    visible: false
+                                    visible: true
                                     clip: true
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
