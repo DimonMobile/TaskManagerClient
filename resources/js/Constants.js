@@ -28,6 +28,8 @@ function getErrorString(index) {
         return qsTr('Project doesn\'t exists')
     case 12:
         return qsTr('Save error(try again latter)')
+    case 13:
+        return qsTr('Access denied')
     default:
         return qsTr('Unexpected error')
     }

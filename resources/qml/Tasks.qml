@@ -34,26 +34,72 @@ Page {
     contentItem: Item {
         ColumnLayout {
             anchors.fill: parent
-            RowLayout {
+
+            GroupBox {
                 Layout.fillWidth: true
-                TextField {
-                    Layout.leftMargin: 10
-                    Layout.fillWidth: true
-                }
-                Button {
-                    highlighted: true
-                    text: qsTr('Search')
-                }
-                Button {
+                Layout.margins: 15
+                label: Label {
                     text: qsTr('Filter')
-                    Layout.rightMargin: 10
+                }
+
+                Flow {
+                    spacing: 15
+                    anchors.fill: parent
+                    flow: Flow.LeftToRight
+                    ColumnLayout {
+                        Label {
+                            text: qsTr('Status')
+                        }
+                        ComboBox {
+                            model: ['<All>', 'Open', 'Resolved']
+                        }
+                    }
+                    ColumnLayout {
+                        Label {
+                            text: qsTr('Assignee/Creator')
+                        }
+                        ComboBox {
+                            model: ['<All>', 'Assigned to me', 'Created by me']
+                            Layout.preferredWidth: 200
+                        }
+                    }
+                    ColumnLayout {
+                        Label {
+                            text: qsTr('Type')
+                        }
+                        ComboBox {
+                            model: ['<All>', 'Feature', 'Bug']
+                        }
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        Label {
+                            text: qsTr('Search')
+                        }
+                        TextField {
+                            placeholderText: qsTr('Part of name')
+                            Layout.preferredWidth: 300
+                            Layout.minimumWidth: 100
+                            Layout.fillWidth: true
+                        }
+                    }
+                    Button {
+                        Layout.alignment: Qt.AlignRight
+                        highlighted: true
+                        text: qsTr('Filter')
+                        icon.source: 'qrc:/icons/resources/icons/search.svg'
+                    }
                 }
             }
+
             ListView {
                 clip: true
                 model: issuesModel
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                header: BusyIndicator {
+                    width: parent.width
+                }
                 delegate: ItemDelegate {
                     width: parent.width
                     text: name
@@ -65,17 +111,17 @@ Page {
                     }
                 }
             }
-        }
-    }
-    ListModel {
-        id: issuesModel
-        ListElement {
-            name: '<b>This is the name of the issue</b><br><br>Created: <font color="brown">Fred Pirs</font><br>Assignee: <font color="brown">Dimon Mobile</font>'
-            ico: 'qrc:/icons/resources/icons/error.svg'
-        }
-        ListElement {
-            name: '<b>This is the name of the issue</b><br><br>Created: <font color="brown">Fred Pirs</font><br>Assignee: <font color="brown">Dimon Mobile</font>'
-            ico: 'qrc:/icons/resources/icons/lens.svg'
+            ListModel {
+                id: issuesModel
+                ListElement {
+                    name: '<b>This is the name of the issue</b><br><br>Created: <font color="brown">Fred Pirs</font><br>Assignee: <font color="brown">Dimon Mobile</font>'
+                    ico: 'qrc:/icons/resources/icons/error.svg'
+                }
+                ListElement {
+                    name: '<b>This is the name of the issue</b><br><br>Created: <font color="brown">Fred Pirs</font><br>Assignee: <font color="brown">Dimon Mobile</font>'
+                    ico: 'qrc:/icons/resources/icons/lens.svg'
+                }
+            }
         }
     }
     ListModel {
@@ -202,9 +248,9 @@ Page {
                         } else if (createIssueBugRadioButton.checked) {
                             issueType = 1;
                         }
-
+                        console.log(projectNameComboBox.currentText);
                         Utils.createIssue(issueNameTextEdit.text, issueDescriptionTextArea.text
-                                          , issueEstimateSpinBox.value, projectNameComboBox.displayText, issueType
+                                          , issueEstimateSpinBox.value, projectNameComboBox.currentText, issueType
                                           , createIssueButton, projectsLoadIndicator, createIssueErrorLabel);
                     }
                 }
@@ -215,5 +261,8 @@ Page {
                 }
             }
         }
+    }
+    Popup {
+        id: filterPopup
     }
 }
