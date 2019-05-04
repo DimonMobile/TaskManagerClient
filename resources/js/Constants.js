@@ -18,6 +18,16 @@ function getErrorString(index) {
         return qsTr('This projectname already used!');
     case 7:
         return qsTr('Project name must have at least 3 and below 30 symbols');
+    case 8:
+        return qsTr('Invalid issue name length');
+    case 9:
+        return qsTr('Invalid issue description length');
+    case 10:
+        return qsTr('Estimate must have positive length')
+    case 11:
+        return qsTr('Project doesn\'t exists')
+    case 12:
+        return qsTr('Save error(try again latter)')
     default:
         return qsTr('Unexpected error')
     }

@@ -112,6 +112,7 @@ Page {
                     Layout.fillWidth: true
                 }
                 TextField {
+                    id: issueNameTextEdit
                     Layout.preferredWidth: 300
                 }
             }
@@ -123,6 +124,7 @@ Page {
                     text: qsTr('Description')
                 }
                 TextArea {
+                    id: issueDescriptionTextArea
                     Layout.preferredWidth: 300
                 }
             }
@@ -143,8 +145,30 @@ Page {
                 }
 
                 SpinBox{
+                    id: issueEstimateSpinBox
                     value: 0
                     Layout.preferredWidth: 300
+                }
+            }
+
+            RowLayout {
+                Layout.fillWidth: true
+                Label {
+                    text: qsTr('Type')
+                    Layout.fillWidth: true
+                }
+
+                RowLayout{
+                    Layout.fillWidth: true
+                    RadioButton {
+                        id: createIssueFeatureRadioButton
+                        checked: true
+                        text: qsTr('New feature')
+                    }
+                    RadioButton {
+                        id: createIssueBugRadioButton
+                        text: qsTr('Bug')
+                    }
                 }
             }
 
@@ -154,20 +178,41 @@ Page {
                     Layout.fillWidth: true
                 }
                 ComboBox {
-                    id: projectsComboBox
+                    id: projectNameComboBox
                     editable: true
                     model: projectsModel
                     Layout.preferredWidth: 300
                     onFocusChanged: {
                         if (focus == true) {
-                            Utils.loadProjectsToModel(projectsModel, projectsComboBox, projectsLoadIndicator, false);
+                            Utils.loadProjectsToModel(projectsModel, projectNameComboBox, projectsLoadIndicator, false);
                         }
                     }
                 }
             }
-            Button {
-                highlighted: true
-                text: qsTr('Create issue')
+
+            RowLayout {
+                Button {
+                    id: createIssueButton
+                    highlighted: true
+                    text: qsTr('Create issue')
+                    onClicked: {
+                        let issueType;
+                        if (createIssueFeatureRadioButton.checked) {
+                            issueType = 0;
+                        } else if (createIssueBugRadioButton.checked) {
+                            issueType = 1;
+                        }
+
+                        Utils.createIssue(issueNameTextEdit.text, issueDescriptionTextArea.text
+                                          , issueEstimateSpinBox.value, projectNameComboBox.displayText, issueType
+                                          , createIssueButton, projectsLoadIndicator, createIssueErrorLabel);
+                    }
+                }
+                Label {
+                    id: createIssueErrorLabel
+                    Layout.fillWidth: true
+                    horizontalAlignment: Qt.AlignHCenter
+                }
             }
         }
     }
