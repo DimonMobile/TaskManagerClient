@@ -51,6 +51,7 @@ Page {
                             text: qsTr('Status')
                         }
                         ComboBox {
+                            id: statusComboBox
                             model: ['<All>', 'Open', 'Resolved']
                         }
                     }
@@ -59,6 +60,7 @@ Page {
                             text: qsTr('Assignee/Creator')
                         }
                         ComboBox {
+                            id: variantComboBox
                             model: ['<All>', 'Assigned to me', 'Created by me']
                             Layout.preferredWidth: 200
                         }
@@ -68,6 +70,7 @@ Page {
                             text: qsTr('Type')
                         }
                         ComboBox {
+                            id: typeComboBox
                             model: ['<All>', 'Feature', 'Bug']
                         }
                     }
@@ -77,6 +80,7 @@ Page {
                             text: qsTr('Search')
                         }
                         TextField {
+                            id: searchTextField
                             placeholderText: qsTr('Part of name')
                             Layout.preferredWidth: 300
                             Layout.minimumWidth: 100
@@ -88,6 +92,22 @@ Page {
                         highlighted: true
                         text: qsTr('Filter')
                         icon.source: 'qrc:/icons/resources/icons/search.svg'
+                        onClicked: {
+                            var hr = new XMLHttpRequest();
+                            hr.open("POST", Constants.HOST_ADDRESS + "/get_issues");
+                            hr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                            hr.onreadystatechange = function() {
+                                if (hr.readyState === 4) {
+                                    console.log(hr.responseText);
+                                }
+                            }
+
+                            hr.send("token=" + encodeURIComponent(Settings.token()) +
+                                    "&status=" + encodeURIComponent(statusComboBox.currentIndex) +
+                                    "&variant=" + encodeURIComponent(variantComboBox.currentIndex) +
+                                    "&type=" + encodeURIComponent(typeComboBox.currentIndex) +
+                                    "&s=" + encodeURIComponent(searchTextField.text));
+                        }
                     }
                 }
             }
@@ -261,8 +281,5 @@ Page {
                 }
             }
         }
-    }
-    Popup {
-        id: filterPopup
     }
 }
