@@ -27,6 +27,7 @@
         <file>resources/qml/RegistrationPage.qml</file>
         <file>resources/qml/ServerCheckingPage.qml</file>
         <file>resources/qml/Tasks.qml</file>
+        <file>resources/qml/IssuePage.qml</file>
     </qresource>
     <qresource prefix="/js">
         <file>resources/js/Constants.js</file>

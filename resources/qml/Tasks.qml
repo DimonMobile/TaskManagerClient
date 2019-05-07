@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 
@@ -93,15 +93,36 @@ Page {
                         text: qsTr('Filter')
                         icon.source: 'qrc:/icons/resources/icons/search.svg'
                         onClicked: {
-                            var hr = new XMLHttpRequest();
+                            let hr = new XMLHttpRequest();
                             hr.open("POST", Constants.HOST_ADDRESS + "/get_issues");
                             hr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                             hr.onreadystatechange = function() {
                                 if (hr.readyState === 4) {
-                                    console.log(hr.responseText);
+                                    issuesListView.footerItem.visible = false;
+                                    let resultObject = JSON.parse(hr.responseText);
+                                    if (resultObject.result === "success") {
+                                        let items = resultObject.items;
+                                        for(var i = 0 ; i < items.length; ++i) {
+                                            var resultItem = {}
+                                            resultItem['name'] = items[i].name;
+                                            resultItem['issue_id'] = items[i].id;
+                                            resultItem['project'] = items[i].project_name;
+                                            resultItem['status'] = items[i].status;
+                                            resultItem['estimate'] = items[i].estimate;
+                                            resultItem['progress'] = items[i].progress;
+                                            if (items[i].issue_type === 0) {
+                                                resultItem['ico'] = 'qrc:/icons/resources/icons/lens.svg';
+                                            } else if (items[i].issue_type === 1) {
+                                                resultItem['ico'] = 'qrc:/icons/resources/icons/error.svg';
+                                            }
+
+                                            issuesModel.append(resultItem);
+                                        }
+                                    }
                                 }
                             }
-
+                            issuesModel.clear();
+                            issuesListView.footerItem.visible = true;
                             hr.send("token=" + encodeURIComponent(Settings.token()) +
                                     "&status=" + encodeURIComponent(statusComboBox.currentIndex) +
                                     "&variant=" + encodeURIComponent(variantComboBox.currentIndex) +
@@ -113,34 +134,51 @@ Page {
             }
 
             ListView {
+                id: issuesListView
                 clip: true
                 model: issuesModel
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                header: BusyIndicator {
+
+                footer: BusyIndicator {
                     width: parent.width
+                    visible: false
                 }
+
+
+                add: Transition {
+                    NumberAnimation { property: "x"; from: width; to: x; duration: 1000; easing.type: Easing.OutCubic }
+                }
+
+                remove: Transition {
+                    NumberAnimation { property: "x"; from: 0; to: -width; duration: 1000; easing.type: Easing.InCubic }
+                }
+
                 delegate: ItemDelegate {
                     width: parent.width
-                    text: name
+                    text: issue_id + '. ' + '<b>' + project + '</b> ' + ( (status === 1) ? '<font color="green">' + qsTr('[resolved]') + '</font>' : '' ) + '<br>' + name
                     icon.source: ico
+
+                    onClicked: {
+                            console.log(parseInt(text));
+                            stackView.push(Qt.createComponent('qrc:/qml/resources/qml/IssuePage.qml'))
+                    }
+
                     ProgressBar {
-                        value: 0.6
+                        from: 0
+                        to: estimate
                         width: parent.width
-                        indeterminate: true
+                        indeterminate: estimate == 0 ? true : false
+                        NumberAnimation on value {
+                            to: progress
+                            duration: 8000
+                            easing.type: Easing.OutCubic
+                        }
                     }
                 }
             }
             ListModel {
                 id: issuesModel
-                ListElement {
-                    name: '<b>This is the name of the issue</b><br><br>Created: <font color="brown">Fred Pirs</font><br>Assignee: <font color="brown">Dimon Mobile</font>'
-                    ico: 'qrc:/icons/resources/icons/error.svg'
-                }
-                ListElement {
-                    name: '<b>This is the name of the issue</b><br><br>Created: <font color="brown">Fred Pirs</font><br>Assignee: <font color="brown">Dimon Mobile</font>'
-                    ico: 'qrc:/icons/resources/icons/lens.svg'
-                }
             }
         }
     }

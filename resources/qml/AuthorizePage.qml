@@ -29,14 +29,14 @@ Item {
                 TextField {
                     id: emailTextField
                     placeholderText: qsTr("Email")
-                    text: ''
+                    text: 'mobik.dimka@gmail.com'
                     width: 320
                 }
 
                 TextField {
                     id: passwordTextField
                     placeholderText: qsTr("Password")
-                    text: ''
+                    text: '34523452'
                     echoMode: TextInput.Password
                     width: 320
                 }
