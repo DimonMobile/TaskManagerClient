@@ -160,8 +160,7 @@ Page {
                     icon.source: ico
 
                     onClicked: {
-                            console.log(parseInt(text));
-                            stackView.push(Qt.createComponent('qrc:/qml/resources/qml/IssuePage.qml'))
+                        stackView.push(Qt.createComponent('qrc:/qml/resources/qml/IssuePage.qml').createObject(null, {issueIndex: parseInt(issue_id)}));
                     }
 
                     ProgressBar {

@@ -4,6 +4,9 @@ import QtQuick.Layouts 1.3
 
 Page {
     id: page
+
+    property int issueIndex: 0
+
     header: ToolBar {
         RowLayout {
             anchors.fill: parent
@@ -23,7 +26,7 @@ Page {
         ColumnLayout {
             anchors.fill: parent
             Label {
-                text: '31. issue name'
+                text: page.issueIndex + '. issue name'
                 font.capitalization: Font.AllUppercase
                 font.pointSize: 26
                 Layout.fillWidth: true
