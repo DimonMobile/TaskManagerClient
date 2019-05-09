@@ -1,8 +1,8 @@
-import QtQuick 2.0
+import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
-
+import QtCharts 2.3
 
 import 'qrc:/js/resources/js/Utils.js' as Utils;
 import 'qrc:/js/resources/js/Constants.js' as Constants;
@@ -159,24 +159,60 @@ Item {
                                     }
                                 }
 
-                                BusyIndicator {
-                                    Layout.fillHeight: true
-                                    Layout.alignment: Qt.AlignCenter
-                                }
-
                                 ListView{
+                                    function loadProjectStatistics() {
+                                        var hr = new XMLHttpRequest();
+                                        hr.open("POST", Constants.HOST_ADDRESS + "/project_statistics");
+                                        hr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                        hr.onreadystatechange = function() {
+                                            if (hr.readyState === 4) {
+                                                var obj = JSON.parse(hr.responseText);
+                                                if (obj.result === "success") {
+                                                    var items = obj.chart1_items;
+                                                    var logged = [];
+                                                    var estimated = [];
+                                                    var real = [];
+                                                    issueTimeSeries.clear();
+                                                    categoriesAxis.clear();
+                                                    for(var i = 0 ; i < items.length; ++i) {
+                                                        categoriesAxis.categories.push(items[i].name);
+                                                        logged.push(items[i].logged);
+                                                        real.push(items[i].real);
+                                                        estimated.push(items[i].estimated);
+                                                    }
+                                                    issueTimeSeries.append(qsTr('Logged'), logged);
+                                                    issueTimeSeries.append(qsTr('Estimated'), estimated);
+                                                    issueTimeSeries.append(qsTr('Real'), real);
+
+                                                    issueStatusPieSeries.clear();
+                                                    issueStatusPieSeries.append(qsTr('Resolved'), obj.chart2.resolved);
+                                                    issueStatusPieSeries.append(qsTr('Open'), obj.chart2.open);
+                                                }
+                                            }
+                                        }
+                                        hr.send("project=" + encodeURIComponent(projectsListView.currentItem.text));
+                                    }
+
+                                    id: projectsListView
                                     visible: true
                                     clip: true
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
                                     model: model
+                                    highlightFollowsCurrentItem: true
                                     highlight: Rectangle{
                                         color: "lightblue"
                                     }
 
+
+
                                     delegate: ItemDelegate {
                                         width: parent.width
-                                        text: "<b>" + name + "</b><br>Text message"
+                                        text: name
+                                        onClicked: {
+                                            projectsListView.currentIndex = index;
+                                            projectsListView.loadProjectStatistics();
+                                        }
                                     }
                                 }
                             }
@@ -184,11 +220,37 @@ Item {
                         Flickable {
                             anchors.fill: parent
                             anchors.leftMargin: page.inPortrait ? undefined : drawer.width
-                            Label {
-                                anchors.fill: parent
-                                text: qsTr('No messages yet')
-                                horizontalAlignment: Qt.AlignHCenter
-                                verticalAlignment: Qt.AlignVCenter
+                            contentWidth: width
+                            contentHeight: 1000
+                            Column {
+                                width: parent.width
+                                ChartView {
+                                    id: projectStatisticsChartView;
+                                    width: parent.width
+                                    height: 500
+                                    theme: ChartView.ChartThemeBlueCerulean
+                                    antialiasing: true
+                                    animationOptions: ChartView.AllAnimations
+                                    animationDuration: 5000
+                                    PercentBarSeries {
+                                        id: issueTimeSeries
+                                        axisX: BarCategoryAxis {
+                                            id: categoriesAxis
+                                            categories: []
+                                        }
+                                    }
+                                }
+                                ChartView {
+                                    width: parent.width
+                                    height: 500
+                                    theme: ChartView.ChartThemeBlueCerulean
+                                    antialiasing: true
+                                    animationOptions: ChartView.AllAnimations
+                                    animationDuration: 5000
+                                    PieSeries {
+                                        id: issueStatusPieSeries
+                                    }
+                                }
                             }
                         }
                     }
@@ -385,7 +447,7 @@ Item {
                     position: TabBar.Footer
                     TabButton {
                         width: 200
-                        text: qsTr('Conversations')
+                        text: qsTr('Charts')
                         icon.source: 'qrc:/icons/resources/icons/message.svg';
                     }
                     TabButton {

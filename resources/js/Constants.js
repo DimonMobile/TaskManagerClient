@@ -30,6 +30,10 @@ function getErrorString(index) {
         return qsTr('Save error(try again latter)')
     case 13:
         return qsTr('Access denied')
+    case 14:
+        return qsTr('No such users')
+    case 15:
+        return qsTr('Too many variants')
     default:
         return qsTr('Unexpected error')
     }

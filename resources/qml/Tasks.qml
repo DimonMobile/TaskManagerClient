@@ -52,7 +52,7 @@ Page {
                         }
                         ComboBox {
                             id: statusComboBox
-                            model: ['<All>', 'Open', 'Resolved']
+                            model: [qsTr('<All>'), qsTr('Open'), qsTr('Resolved')]
                         }
                     }
                     ColumnLayout {
@@ -61,7 +61,7 @@ Page {
                         }
                         ComboBox {
                             id: variantComboBox
-                            model: ['<All>', 'Assigned to me', 'Created by me']
+                            model: [qsTr('<All>'), qsTr('Assigned to me'), qsTr('Created by me')]
                             Layout.preferredWidth: 200
                         }
                     }
@@ -71,7 +71,7 @@ Page {
                         }
                         ComboBox {
                             id: typeComboBox
-                            model: ['<All>', 'Feature', 'Bug']
+                            model: [qsTr('<All>'), qsTr('Feature'), qsTr('Bug')]
                         }
                     }
                     ColumnLayout {
@@ -164,6 +164,7 @@ Page {
                     }
 
                     ProgressBar {
+                        height: 5
                         from: 0
                         to: estimate
                         width: parent.width
