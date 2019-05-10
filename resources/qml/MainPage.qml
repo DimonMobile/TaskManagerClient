@@ -102,7 +102,7 @@ Item {
             RowLayout {
                 anchors.fill: parent
                 ToolButton {
-                    icon.source: 'qrc:/icons/resources/icons/message.svg';
+                    icon.source: 'qrc:/icons/resources/icons/chart.svg';
                     visible: {
                         if (page.inPortrait && swipeView.currentIndex == 0)
                             return true;
@@ -201,7 +201,7 @@ Item {
                                     model: model
                                     highlightFollowsCurrentItem: true
                                     highlight: Rectangle{
-                                        color: "lightblue"
+                                        color: "#aaaaff"
                                     }
 
 
@@ -228,7 +228,7 @@ Item {
                                     id: projectStatisticsChartView;
                                     width: parent.width
                                     height: 500
-                                    theme: ChartView.ChartThemeBlueCerulean
+                                    theme: ChartView.ChartThemeBlueNcs
                                     antialiasing: true
                                     animationOptions: ChartView.AllAnimations
                                     animationDuration: 5000
@@ -243,7 +243,7 @@ Item {
                                 ChartView {
                                     width: parent.width
                                     height: 500
-                                    theme: ChartView.ChartThemeBlueCerulean
+                                    theme: ChartView.ChartThemeBlueNcs
                                     antialiasing: true
                                     animationOptions: ChartView.AllAnimations
                                     animationDuration: 5000
@@ -448,7 +448,7 @@ Item {
                     TabButton {
                         width: 200
                         text: qsTr('Charts')
-                        icon.source: 'qrc:/icons/resources/icons/message.svg';
+                        icon.source: 'qrc:/icons/resources/icons/chart.svg';
                     }
                     TabButton {
                         width: 200

@@ -17,6 +17,7 @@
         <file>resources/icons/error.svg</file>
         <file>resources/icons/lens.svg</file>
         <file>resources/icons/add-circle.svg</file>
+        <file>resources/icons/chart.svg</file>
     </qresource>
     <qresource prefix="/qml">
         <file>resources/qml/AuthorizePage.qml</file>
