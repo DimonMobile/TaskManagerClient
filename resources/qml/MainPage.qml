@@ -194,6 +194,7 @@ Item {
                                     }
 
                                     id: projectsListView
+                                    currentIndex: -1
                                     visible: true
                                     clip: true
                                     Layout.fillWidth: true

@@ -304,6 +304,7 @@ Page {
                             let resultObject = JSON.parse(hr.responseText);
                             if (resultObject.result === "success") {
                                 estimateProgressBar.to = resultObject.summary;
+                                estimateProgressBar.value = issueProgressLabel.text;
                                 issueEstimateLabel.text = resultObject.summary;
                             }
                         }

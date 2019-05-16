@@ -35,110 +35,109 @@ Page {
         ColumnLayout {
             anchors.fill: parent
 
-            GroupBox {
-                Layout.fillWidth: true
-                Layout.margins: 15
-                label: Label {
-                    text: qsTr('Filter')
-                }
-
-                Flow {
-                    spacing: 15
-                    anchors.fill: parent
-                    flow: Flow.LeftToRight
-                    ColumnLayout {
-                        Label {
-                            text: qsTr('Status')
-                        }
-                        ComboBox {
-                            id: statusComboBox
-                            model: [qsTr('<All>'), qsTr('Open'), qsTr('Resolved')]
-                        }
-                    }
-                    ColumnLayout {
-                        Label {
-                            text: qsTr('Assignee/Creator')
-                        }
-                        ComboBox {
-                            id: variantComboBox
-                            model: [qsTr('<All>'), qsTr('Assigned to me'), qsTr('Created by me')]
-                            Layout.preferredWidth: 200
-                        }
-                    }
-                    ColumnLayout {
-                        Label {
-                            text: qsTr('Type')
-                        }
-                        ComboBox {
-                            id: typeComboBox
-                            model: [qsTr('<All>'), qsTr('Feature'), qsTr('Bug')]
-                        }
-                    }
-                    ColumnLayout {
-                        Layout.fillWidth: true
-                        Label {
-                            text: qsTr('Search')
-                        }
-                        TextField {
-                            id: searchTextField
-                            placeholderText: qsTr('Part of name')
-                            Layout.preferredWidth: 300
-                            Layout.minimumWidth: 100
-                            Layout.fillWidth: true
-                        }
-                    }
-                    Button {
-                        Layout.alignment: Qt.AlignRight
-                        highlighted: true
-                        text: qsTr('Filter')
-                        icon.source: 'qrc:/icons/resources/icons/search.svg'
-                        onClicked: {
-                            let hr = new XMLHttpRequest();
-                            hr.open("POST", Constants.HOST_ADDRESS + "/get_issues");
-                            hr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                            hr.onreadystatechange = function() {
-                                if (hr.readyState === 4) {
-                                    issuesListView.footerItem.visible = false;
-                                    let resultObject = JSON.parse(hr.responseText);
-                                    if (resultObject.result === "success") {
-                                        let items = resultObject.items;
-                                        for(var i = 0 ; i < items.length; ++i) {
-                                            var resultItem = {}
-                                            resultItem['name'] = items[i].name;
-                                            resultItem['issue_id'] = items[i].id;
-                                            resultItem['project'] = items[i].project_name;
-                                            resultItem['status'] = items[i].status;
-                                            resultItem['estimate'] = items[i].estimate;
-                                            resultItem['progress'] = items[i].progress;
-                                            if (items[i].issue_type === 0) {
-                                                resultItem['ico'] = 'qrc:/icons/resources/icons/lens.svg';
-                                            } else if (items[i].issue_type === 1) {
-                                                resultItem['ico'] = 'qrc:/icons/resources/icons/error.svg';
-                                            }
-
-                                            issuesModel.append(resultItem);
-                                        }
-                                    }
-                                }
-                            }
-                            issuesModel.clear();
-                            issuesListView.footerItem.visible = true;
-                            hr.send("token=" + encodeURIComponent(Settings.token()) +
-                                    "&status=" + encodeURIComponent(statusComboBox.currentIndex) +
-                                    "&variant=" + encodeURIComponent(variantComboBox.currentIndex) +
-                                    "&type=" + encodeURIComponent(typeComboBox.currentIndex) +
-                                    "&s=" + encodeURIComponent(searchTextField.text));
-                        }
-                    }
-                }
-            }
-
             ListView {
                 id: issuesListView
                 clip: true
                 model: issuesModel
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+
+                header: GroupBox {
+                    width: parent.width
+                    label: Label {
+                        text: qsTr('Filter')
+                    }
+
+                    Flow {
+                        spacing: 15
+                        anchors.fill: parent
+                        flow: Flow.LeftToRight
+                        ColumnLayout {
+                            Label {
+                                text: qsTr('Status')
+                            }
+                            ComboBox {
+                                id: statusComboBox
+                                model: [qsTr('<All>'), qsTr('Open'), qsTr('Resolved')]
+                            }
+                        }
+                        ColumnLayout {
+                            Label {
+                                text: qsTr('Assignee/Creator')
+                            }
+                            ComboBox {
+                                id: variantComboBox
+                                model: [qsTr('<All>'), qsTr('Assigned to me'), qsTr('Created by me')]
+                                Layout.preferredWidth: 200
+                            }
+                        }
+                        ColumnLayout {
+                            Label {
+                                text: qsTr('Type')
+                            }
+                            ComboBox {
+                                id: typeComboBox
+                                model: [qsTr('<All>'), qsTr('Feature'), qsTr('Bug')]
+                            }
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            Label {
+                                text: qsTr('Search')
+                            }
+                            TextField {
+                                id: searchTextField
+                                placeholderText: qsTr('Part of name')
+                                Layout.preferredWidth: 300
+                                Layout.minimumWidth: 100
+                                Layout.fillWidth: true
+                            }
+                        }
+                        Button {
+                            Layout.alignment: Qt.AlignRight
+                            highlighted: true
+                            text: qsTr('Filter')
+                            icon.source: 'qrc:/icons/resources/icons/search.svg'
+                            onClicked: {
+                                let hr = new XMLHttpRequest();
+                                hr.open("POST", Constants.HOST_ADDRESS + "/get_issues");
+                                hr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                hr.onreadystatechange = function() {
+                                    if (hr.readyState === 4) {
+                                        issuesListView.footerItem.visible = false;
+                                        let resultObject = JSON.parse(hr.responseText);
+                                        if (resultObject.result === "success") {
+                                            let items = resultObject.items;
+                                            for(var i = 0 ; i < items.length; ++i) {
+                                                var resultItem = {}
+                                                resultItem['name'] = items[i].name;
+                                                resultItem['issue_id'] = items[i].id;
+                                                resultItem['project'] = items[i].project_name;
+                                                resultItem['status'] = items[i].status;
+                                                resultItem['estimate'] = items[i].estimate;
+                                                resultItem['progress'] = items[i].progress;
+                                                if (items[i].issue_type === 0) {
+                                                    resultItem['ico'] = 'qrc:/icons/resources/icons/lens.svg';
+                                                } else if (items[i].issue_type === 1) {
+                                                    resultItem['ico'] = 'qrc:/icons/resources/icons/error.svg';
+                                                }
+
+                                                issuesModel.append(resultItem);
+                                            }
+                                        }
+                                    }
+                                }
+                                issuesModel.clear();
+                                issuesListView.footerItem.visible = true;
+                                hr.send("token=" + encodeURIComponent(Settings.token()) +
+                                        "&status=" + encodeURIComponent(statusComboBox.currentIndex) +
+                                        "&variant=" + encodeURIComponent(variantComboBox.currentIndex) +
+                                        "&type=" + encodeURIComponent(typeComboBox.currentIndex) +
+                                        "&s=" + encodeURIComponent(searchTextField.text));
+                            }
+                        }
+                    }
+                }
 
                 footer: BusyIndicator {
                     width: parent.width
