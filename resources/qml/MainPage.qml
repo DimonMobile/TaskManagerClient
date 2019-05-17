@@ -118,6 +118,9 @@ Item {
                         drawer.position = 0;
                     }
                 }
+                Rectangle{
+                    Layout.fillWidth: true
+                }
             }
         }
 
@@ -191,8 +194,10 @@ Item {
                                             }
                                         }
                                         hr.send("project=" + encodeURIComponent(projectsListView.currentItem.text));
+                                        if (page.inPortrait) {
+                                            drawer.close();
+                                        }
                                     }
-
                                     id: projectsListView
                                     currentIndex: -1
                                     visible: true
@@ -306,7 +311,8 @@ Item {
                                         height: 400
                                         Layout.fillWidth: true
                                         Component.onCompleted: {
-                                            Utils.loadProjectsToModel(model, projectListDashboard, projectListDashboardIndicator);
+                                            Utils.loadProjectsToModel(model, projectListDashboard, projectListDashboardIndicator, true, assignedToMeLabel
+                                                                      , createdIssuesLabel, assignedFeaturesLabel, assignedBugsLabel);
                                         }
                                         delegate: ItemDelegate {
                                             onPressAndHold: {
@@ -371,13 +377,28 @@ Item {
                                         height: 2
                                         Layout.fillWidth: true
                                     }
-                                    Label {
+                                    Row{
+                                        Layout.fillWidth: true
                                         Layout.margins: 10
-                                        text: "Assigned to me: 10"
+                                        Label {
+                                            Layout.margins: 10
+                                            text: qsTr("Assigned to me: ");
+                                        }
+                                        Label {
+                                            id: assignedToMeLabel
+                                        }
                                     }
-                                    Label {
+
+                                    Row{
+                                        Layout.fillWidth: true
                                         Layout.margins: 10
-                                        text: "Active projects: 5"
+                                        Label {
+                                            Layout.margins: 10
+                                            text: qsTr("Created issues: ")
+                                        }
+                                        Label {
+                                            id: createdIssuesLabel
+                                        }
                                     }
                                 }
                                 layer.enabled: true
@@ -401,6 +422,7 @@ Item {
                                         Layout.fillWidth: true
                                         Label {
                                             Layout.margins: 10
+                                            horizontalAlignment: Qt.AlignHCenter
                                             text: "Assigned to me"
                                             Layout.fillWidth: true
                                         }
@@ -410,23 +432,31 @@ Item {
                                         Layout.fillWidth: true
                                     }
 
-                                    BusyIndicator {
-                                        Layout.fillHeight: true
-                                        Layout.alignment: Qt.AlignCenter
-                                    }
-
-                                    ListView {
-                                        visible: false
-                                        clip: true
-                                        ScrollIndicator.vertical: ScrollIndicator {}
-                                        model: model
-                                        height: 400
+                                    Row{
                                         Layout.fillWidth: true
-                                        delegate: ItemDelegate {
-                                            width: parent.width
-                                            text: name
+                                        Layout.margins: 10
+                                        Label {
+                                            Layout.margins: 10
+                                            text: qsTr("Assigned features: ");
+                                        }
+                                        Label {
+                                            id: assignedFeaturesLabel
                                         }
                                     }
+
+                                    Row{
+                                        Layout.fillWidth: true
+                                        Layout.margins: 10
+                                        Label {
+                                            Layout.margins: 10
+                                            text: qsTr("Assigned bugs: ")
+                                        }
+                                        Label {
+                                            id: assignedBugsLabel
+                                        }
+                                    }
+
+
                                 }
 
                                 layer.enabled: true

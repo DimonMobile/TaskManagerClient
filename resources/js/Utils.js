@@ -1,4 +1,5 @@
-function loadProjectsToModel(model, listView, indicator, disableView = true) {
+function loadProjectsToModel(model, listView, indicator, disableView = true, assignedToMeLabel = null, createdByMeIssuesLabel = null
+                             , assignedFeaturesLabel = null, assignedBugsLabel = null) {
     var hr = new XMLHttpRequest();
     hr.open("POST", Constants.HOST_ADDRESS + "/projects");
     hr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -13,6 +14,18 @@ function loadProjectsToModel(model, listView, indicator, disableView = true) {
             indicator.visible = false;
             if (disableView){
                 listView.visible = true;
+            }
+            if (assignedToMeLabel != null) {
+                assignedToMeLabel.text = responseObject.assigned_count;
+            }
+            if (createdByMeIssuesLabel != null){
+                createdByMeIssuesLabel.text = responseObject.created_count;
+            }
+            if (assignedFeaturesLabel != null) {
+                assignedFeaturesLabel.text = responseObject.assigned_feature;
+            }
+            if (assignedBugsLabel != null) {
+                assignedBugsLabel.text = responseObject.assigned_bug;
             }
         }
     }

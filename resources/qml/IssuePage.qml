@@ -95,7 +95,7 @@ Page {
                 Label {
                     id: issueNameLabel
                     font.capitalization: Font.AllUppercase
-                    font.pointSize: 26
+                    wrapMode: Text.WordWrap
                     Layout.fillWidth: true
                     horizontalAlignment: Qt.AlignHCenter
                 }
