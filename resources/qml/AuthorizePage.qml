@@ -55,7 +55,10 @@ Item {
                                     popup.close();
                                     var responseObject = JSON.parse(xr.responseText);
                                     if (responseObject.result === 'success') {
-                                        popupMessageLabel.text = responseObject.user.name + "\r\n" + responseObject.user.language;
+                                        if (responseObject.user.language === "Русский") {
+                                            Translator.translateTo(1);
+                                        }
+
                                         Settings.setToken(responseObject.user.generated_token);
                                         stackView.push(Qt.createComponent("qrc:/qml/resources/qml/MainPage.qml"));
                                     } else { // handling error

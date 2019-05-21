@@ -284,7 +284,7 @@ Item {
                                         Layout.fillWidth: true
                                         Label {
                                             Layout.margins: 10
-                                            text: "My projects"
+                                            text: qsTr("My projects")
                                             Layout.fillWidth: true
                                         }
                                         ToolButton{
@@ -370,7 +370,7 @@ Item {
                                     width: parent.width
                                     Label {
                                         Layout.margins: 10
-                                        text: "My activity"
+                                        text: qsTr("My activity")
                                         Layout.alignment: Qt.AlignHCenter
                                     }
                                     Rectangle {
@@ -423,7 +423,7 @@ Item {
                                         Label {
                                             Layout.margins: 10
                                             horizontalAlignment: Qt.AlignHCenter
-                                            text: "Assigned to me"
+                                            text: qsTr("Assigned to me")
                                             Layout.fillWidth: true
                                         }
                                     }

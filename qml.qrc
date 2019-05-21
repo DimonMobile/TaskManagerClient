@@ -35,4 +35,8 @@
         <file>resources/js/Constants.js</file>
         <file>resources/js/Utils.js</file>
     </qresource>
+    <qresource prefix="/translations">
+        <file>tl_en.qm</file>
+        <file>tl_ru.qm</file>
+    </qresource>
 </RCC>

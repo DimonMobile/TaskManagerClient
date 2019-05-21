@@ -19,7 +19,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/AuthorizePage.qml" line="74"/>
+        <location filename="resources/qml/AuthorizePage.qml" line="77"/>
         <source>Sign up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -115,82 +115,87 @@
 <context>
     <name>IssuePage</name>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="16"/>
+        <location filename="resources/qml/IssuePage.qml" line="30"/>
         <source>Resolve issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="20"/>
+        <location filename="resources/qml/IssuePage.qml" line="36"/>
         <source>Open issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="76"/>
-        <source>Issue deatils</source>
+        <location filename="resources/qml/IssuePage.qml" line="136"/>
+        <source> of </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="122"/>
+        <location filename="resources/qml/IssuePage.qml" line="145"/>
         <source> hours</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="160"/>
+        <location filename="resources/qml/IssuePage.qml" line="183"/>
         <source>Log work</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="165"/>
+        <location filename="resources/qml/IssuePage.qml" line="188"/>
         <source>Re-estimate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="178"/>
+        <location filename="resources/qml/IssuePage.qml" line="201"/>
         <source>Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="187"/>
+        <location filename="resources/qml/IssuePage.qml" line="210"/>
         <source>Created</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="195"/>
+        <location filename="resources/qml/IssuePage.qml" line="218"/>
         <source>Creator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="203"/>
+        <location filename="resources/qml/IssuePage.qml" line="226"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="212"/>
+        <location filename="resources/qml/IssuePage.qml" line="239"/>
         <source>Assignee</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="216"/>
+        <location filename="resources/qml/IssuePage.qml" line="243"/>
         <source>&lt;empty&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="228"/>
+        <location filename="resources/qml/IssuePage.qml" line="255"/>
         <source>Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="247"/>
+        <location filename="resources/qml/IssuePage.qml" line="274"/>
         <source>Assigned successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="296"/>
+        <location filename="resources/qml/IssuePage.qml" line="325"/>
         <source>Estimate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="329"/>
+        <location filename="resources/qml/IssuePage.qml" line="355"/>
+        <source>This function will be implemented in next releases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/IssuePage.qml" line="368"/>
         <source>Log</source>
         <translation type="unfinished"></translation>
     </message>
@@ -226,52 +231,87 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="152"/>
-        <source>Username/email</source>
+        <location filename="resources/qml/MainPage.qml" line="155"/>
+        <source>Project name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="157"/>
+        <location filename="resources/qml/MainPage.qml" line="160"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="198"/>
+        <location filename="resources/qml/MainPage.qml" line="186"/>
         <source>Logged</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="199"/>
+        <location filename="resources/qml/MainPage.qml" line="187"/>
         <source>Estimated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="200"/>
+        <location filename="resources/qml/MainPage.qml" line="188"/>
         <source>Real</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="203"/>
+        <location filename="resources/qml/MainPage.qml" line="191"/>
         <source>Resolved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="204"/>
+        <location filename="resources/qml/MainPage.qml" line="192"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="317"/>
+        <location filename="resources/qml/MainPage.qml" line="287"/>
+        <source>My projects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/MainPage.qml" line="329"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="445"/>
-        <source>Conversations</source>
+        <location filename="resources/qml/MainPage.qml" line="373"/>
+        <source>My activity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/MainPage.qml" line="450"/>
+        <location filename="resources/qml/MainPage.qml" line="385"/>
+        <source>Assigned to me: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/MainPage.qml" line="397"/>
+        <source>Created issues: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/MainPage.qml" line="426"/>
+        <source>Assigned to me</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/MainPage.qml" line="440"/>
+        <source>Assigned features: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/MainPage.qml" line="452"/>
+        <source>Assigned bugs: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/MainPage.qml" line="481"/>
+        <source>Charts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/MainPage.qml" line="486"/>
         <source>Dashboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -351,117 +391,117 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="80"/>
+        <location filename="resources/qml/Tasks.qml" line="86"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="42"/>
-        <location filename="resources/qml/Tasks.qml" line="93"/>
+        <location filename="resources/qml/Tasks.qml" line="48"/>
+        <location filename="resources/qml/Tasks.qml" line="99"/>
         <source>Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="51"/>
+        <location filename="resources/qml/Tasks.qml" line="57"/>
         <source>Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="55"/>
-        <location filename="resources/qml/Tasks.qml" line="64"/>
-        <location filename="resources/qml/Tasks.qml" line="74"/>
+        <location filename="resources/qml/Tasks.qml" line="61"/>
+        <location filename="resources/qml/Tasks.qml" line="70"/>
+        <location filename="resources/qml/Tasks.qml" line="80"/>
         <source>&lt;All&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="55"/>
+        <location filename="resources/qml/Tasks.qml" line="61"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="55"/>
+        <location filename="resources/qml/Tasks.qml" line="61"/>
         <source>Resolved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="60"/>
+        <location filename="resources/qml/Tasks.qml" line="66"/>
         <source>Assignee/Creator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="64"/>
+        <location filename="resources/qml/Tasks.qml" line="70"/>
         <source>Assigned to me</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="64"/>
+        <location filename="resources/qml/Tasks.qml" line="70"/>
         <source>Created by me</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="74"/>
+        <location filename="resources/qml/Tasks.qml" line="80"/>
         <source>Feature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="84"/>
+        <location filename="resources/qml/Tasks.qml" line="90"/>
         <source>Part of name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="159"/>
+        <location filename="resources/qml/Tasks.qml" line="158"/>
         <source>[resolved]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="199"/>
+        <location filename="resources/qml/Tasks.qml" line="198"/>
         <source>New issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="215"/>
+        <location filename="resources/qml/Tasks.qml" line="214"/>
         <source>Issue name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="228"/>
+        <location filename="resources/qml/Tasks.qml" line="227"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="241"/>
+        <location filename="resources/qml/Tasks.qml" line="240"/>
         <source>Estimate(in hours)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="245"/>
+        <location filename="resources/qml/Tasks.qml" line="244"/>
         <source>Zero for infinity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="70"/>
-        <location filename="resources/qml/Tasks.qml" line="261"/>
+        <location filename="resources/qml/Tasks.qml" line="76"/>
+        <location filename="resources/qml/Tasks.qml" line="260"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="270"/>
+        <location filename="resources/qml/Tasks.qml" line="269"/>
         <source>New feature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="74"/>
-        <location filename="resources/qml/Tasks.qml" line="274"/>
+        <location filename="resources/qml/Tasks.qml" line="80"/>
+        <location filename="resources/qml/Tasks.qml" line="273"/>
         <source>Bug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="281"/>
+        <location filename="resources/qml/Tasks.qml" line="280"/>
         <source>Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="301"/>
+        <location filename="resources/qml/Tasks.qml" line="300"/>
         <source>Create issue</source>
         <translation type="unfinished"></translation>
     </message>
@@ -469,7 +509,7 @@
 <context>
     <name>Utils</name>
     <message>
-        <location filename="resources/js/Utils.js" line="42"/>
+        <location filename="resources/js/Utils.js" line="55"/>
         <source>Issue created</source>
         <translation type="unfinished"></translation>
     </message>

@@ -6,8 +6,8 @@
 #include <QDebug>
 
 namespace Constants {
-    const QString englishFileName = "tl_en.qm";
-    const QString russianFileName = "tl_ru.qm";
+    const QString englishFileName = ":/translations/tl_en.qm";
+    const QString russianFileName = ":/translations/tl_ru.qm";
 }
 
 Translator::Translator(QObject *parent) : QObject(parent), m_currentTranslator(nullptr)

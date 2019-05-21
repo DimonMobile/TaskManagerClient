@@ -119,7 +119,7 @@ Page {
                     Layout.fillWidth: true
                     verticalAlignment: Qt.AlignVCenter
                     horizontalAlignment: Qt.AlignHCenter
-                    text: qsTr('...')
+                    text: '...'
                     color: "grey"
                 }
 
@@ -133,7 +133,7 @@ Page {
                     }
                     Label {
                         color: 'grey'
-                        text: ' of '
+                        text: qsTr(' of ')
                     }
                     Label {
                         id: issueEstimateLabel
