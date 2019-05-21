@@ -152,7 +152,7 @@ Item {
                                     TextField {
                                         Layout.margins: 5
                                         Layout.fillWidth: true
-                                        placeholderText: qsTr('Username/email')
+                                        placeholderText: qsTr('Project name')
                                     }
                                     Button {
                                         Layout.margins: 5
