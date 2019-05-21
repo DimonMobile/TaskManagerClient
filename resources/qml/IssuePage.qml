@@ -1,6 +1,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
-import QtQuick.Layouts 1.3
+import QtQuick.Layouts 1.12
+import QtQuick.Controls.Material 2.3
+import QtQuick.Controls.Universal 2.3
 
 import 'qrc:/js/resources/js/Constants.js' as Constants
 import 'qrc:/js/resources/js/Utils.js' as Utils
@@ -8,15 +10,29 @@ import 'qrc:/js/resources/js/Utils.js' as Utils
 Page {
     id: page
 
+    Material.theme: Material.Dark
+    Material.accent: Material.Purple
+
+    Universal.theme: Universal.Dark
+    Universal.accent: Universal.Yellow
+
+    property color sourceTextColor: Qt.rgba(10, 10, 10, 10);
+
     property int currentIssueState: 0
 
     function switchIssueState(state) {
+        if (page.sourceTextColor.r === 10) {
+            page.sourceTextColor = issueNameLabel.color;
+        }
+
         if (state === 0) {
-            issueNameLabel.color = "black";
+            issueNameLabel.color = page.sourceTextColor;
             issueResolveButton.text = qsTr('Resolve issue');
+            issueNameLabel.font.bold = false;
             currentIssueState = 0;
         } else if (state === 1) {
-            issueNameLabel.color = "green";
+            issueNameLabel.color = "lightgreen";
+            issueNameLabel.font.bold = true;
             issueResolveButton.text = qsTr('Open issue');
             currentIssueState = 1;
         }
@@ -39,7 +55,8 @@ Page {
                     issueDescriptionLabel.text = resultItem.description;
                     issueProgressLabel.text = resultItem.progress;
                     issueEstimateLabel.text = resultItem.estimate;
-                    issueProjectNameLabel.text = resultItem.project_name
+                    issueProjectNameLabel.text = resultItem.project_name;
+                    projectNameLabel.text = resultItem.project_name;
                     issueCreatorLabel.text = resultItem.creator.email + '[' + resultItem.creator.name + ']';
                     issueCreatedLabel.text = resultItem.created;
                     issueAssigneeButton.enabled = resultItem.can_edit;
@@ -71,9 +88,15 @@ Page {
                 onClicked: stackView.pop()
             }
             Label {
+                id: issueNameLabel
+                font.capitalization: Font.AllUppercase
+                wrapMode: Text.WordWrap
                 Layout.fillWidth: true
                 horizontalAlignment: Qt.AlignHCenter
-                text: qsTr('Issue deatils')
+            }
+            ToolButton {
+                icon.source: 'qrc:/icons/resources/icons/comment.svg'
+                onClicked: commentsPopup.open()
             }
         }
     }
@@ -91,20 +114,20 @@ Page {
                     verticalAlignment: Qt.AlignVCenter
                     color: "grey"
                 }
-
                 Label {
-                    id: issueNameLabel
-                    font.capitalization: Font.AllUppercase
-                    wrapMode: Text.WordWrap
+                    id: projectNameLabel
                     Layout.fillWidth: true
+                    verticalAlignment: Qt.AlignVCenter
                     horizontalAlignment: Qt.AlignHCenter
+                    text: qsTr('...')
+                    color: "grey"
                 }
 
                 Row {
                     Layout.margins: 10
                     Label {
                         id: issueProgressLabel
-                        text: '6'
+                        text: '...'
                         color: "grey"
                         horizontalAlignment: Qt.AlignHCenter
                     }
@@ -115,7 +138,7 @@ Page {
                     Label {
                         id: issueEstimateLabel
                         color: 'grey'
-                        text: '12'
+                        text: '...'
                     }
                     Label {
                         color: 'grey'
@@ -207,8 +230,12 @@ Page {
                 }
             }
 
-            RowLayout {
+            Flow {
+                flow: Flow.LeftToRight
+                Layout.fillWidth: true
                 Label {
+                    verticalAlignment: Qt.AlignVCenter
+                    height: issueAssigneeButton.height
                     text: '<b>' + qsTr('Assignee') + ': </b>'
                 }
                 Button {
@@ -275,12 +302,14 @@ Page {
                 }
             }
 
-            Label {
-                id: issueDescriptionLabel
+            ScrollView {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                wrapMode: Text.WordWrap
-                text: '...'
+                TextArea {
+                    id: issueDescriptionLabel
+                    readOnly: true
+                    text: '...'
+                }
             }
         }
     }
@@ -315,6 +344,15 @@ Page {
                     reestimatePopup.close();
                 }
             }
+        }
+    }
+
+    Popup {
+        id: commentsPopup
+        modal: true
+        anchors.centerIn: parent
+        Label {
+            text: qsTr('This function will be implemented in next releases')
         }
     }
 
