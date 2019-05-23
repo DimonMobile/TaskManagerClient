@@ -154,7 +154,8 @@ Page {
                 value: 0
                 indeterminate: to == 0 ? true : false
             }
-            Row {
+            Flow {
+                flow: Flow.LeftToRight
                 Button {
                     id: issueResolveButton
 
