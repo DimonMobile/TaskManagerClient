@@ -58,7 +58,6 @@ Item {
                                         if (responseObject.user.language === "Русский") {
                                             Translator.translateTo(1);
                                         }
-
                                         Settings.setToken(responseObject.user.generated_token);
                                         stackView.push(Qt.createComponent("qrc:/qml/resources/qml/MainPage.qml"));
                                     } else { // handling error

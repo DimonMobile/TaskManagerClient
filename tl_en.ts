@@ -19,7 +19,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/AuthorizePage.qml" line="77"/>
+        <location filename="resources/qml/AuthorizePage.qml" line="76"/>
         <source>Sign up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -135,67 +135,67 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="183"/>
+        <location filename="resources/qml/IssuePage.qml" line="184"/>
         <source>Log work</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="188"/>
+        <location filename="resources/qml/IssuePage.qml" line="189"/>
         <source>Re-estimate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="201"/>
+        <location filename="resources/qml/IssuePage.qml" line="202"/>
         <source>Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="210"/>
+        <location filename="resources/qml/IssuePage.qml" line="211"/>
         <source>Created</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="218"/>
+        <location filename="resources/qml/IssuePage.qml" line="219"/>
         <source>Creator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="226"/>
+        <location filename="resources/qml/IssuePage.qml" line="227"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="239"/>
+        <location filename="resources/qml/IssuePage.qml" line="240"/>
         <source>Assignee</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="243"/>
+        <location filename="resources/qml/IssuePage.qml" line="244"/>
         <source>&lt;empty&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="255"/>
+        <location filename="resources/qml/IssuePage.qml" line="256"/>
         <source>Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="274"/>
+        <location filename="resources/qml/IssuePage.qml" line="275"/>
         <source>Assigned successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="325"/>
+        <location filename="resources/qml/IssuePage.qml" line="326"/>
         <source>Estimate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="355"/>
+        <location filename="resources/qml/IssuePage.qml" line="356"/>
         <source>This function will be implemented in next releases</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="368"/>
+        <location filename="resources/qml/IssuePage.qml" line="369"/>
         <source>Log</source>
         <translation type="unfinished"></translation>
     </message>
@@ -391,11 +391,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="86"/>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="resources/qml/Tasks.qml" line="48"/>
         <location filename="resources/qml/Tasks.qml" line="99"/>
         <source>Filter</source>
@@ -439,8 +434,25 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="resources/qml/Tasks.qml" line="76"/>
+        <location filename="resources/qml/Tasks.qml" line="260"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="resources/qml/Tasks.qml" line="80"/>
         <source>Feature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/Tasks.qml" line="80"/>
+        <location filename="resources/qml/Tasks.qml" line="273"/>
+        <source>Bug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="resources/qml/Tasks.qml" line="86"/>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -479,20 +491,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="76"/>
-        <location filename="resources/qml/Tasks.qml" line="260"/>
-        <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="resources/qml/Tasks.qml" line="269"/>
         <source>New feature</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="resources/qml/Tasks.qml" line="80"/>
-        <location filename="resources/qml/Tasks.qml" line="273"/>
-        <source>Bug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

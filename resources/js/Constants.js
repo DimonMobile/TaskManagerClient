@@ -1,4 +1,4 @@
-var HOST_ADDRESS = "http://192.168.100.21:8000";
+var HOST_ADDRESS = "http://192.168.43.118:8000";
 
 function getErrorString(index) {
     switch(index) {

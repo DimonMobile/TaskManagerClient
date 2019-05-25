@@ -4,17 +4,9 @@
 <context>
     <name>AuthorizePage</name>
     <message>
-        <source>English</source>
-        <translation type="vanished">Английский</translation>
-    </message>
-    <message>
-        <source>Russian</source>
-        <translation type="vanished">Русский</translation>
-    </message>
-    <message>
         <location filename="resources/qml/AuthorizePage.qml" line="31"/>
         <source>Email</source>
-        <translation>Электронная почта</translation>
+        <translation>Емейл</translation>
     </message>
     <message>
         <location filename="resources/qml/AuthorizePage.qml" line="38"/>
@@ -27,7 +19,7 @@
         <translation>Вход</translation>
     </message>
     <message>
-        <location filename="resources/qml/AuthorizePage.qml" line="77"/>
+        <location filename="resources/qml/AuthorizePage.qml" line="76"/>
         <source>Sign up</source>
         <translation>Регистрация</translation>
     </message>
@@ -37,22 +29,22 @@
     <message>
         <location filename="resources/js/Constants.js" line="6"/>
         <source>Username length must be at least 3 symbols and below 20</source>
-        <translation>Длина имени пользователя должна быть от трех до 20 символов</translation>
+        <translation>Длиня имени пользователя должна варьироваться между 3 и 20 символами</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="8"/>
         <source>Password length must be at least 8 symbols and below 64</source>
-        <translation>Длина пароля должна быть от 8 до 64 символов</translation>
+        <translation>Длина проля может варьироваться в пределах 8 и 64 символов</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="10"/>
         <source>Invalid email</source>
-        <translation>Некорректный email адрес</translation>
+        <translation>Невалидный эмейл</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="12"/>
         <source>This email address already used. Try sign in using your creditionals.</source>
-        <translation>Этот email уже используется. Попробуйте войти используя свои данные.</translation>
+        <translation>Этот емейл адрес уже используется. Попробуйте войти используя ваши данные.</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="14"/>
@@ -62,42 +54,42 @@
     <message>
         <location filename="resources/js/Constants.js" line="16"/>
         <source>Invalid email or password.</source>
-        <translation>Некорректный email или пароль.</translation>
+        <translation>Неверный эмейл или пароль.</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="18"/>
         <source>This projectname already used!</source>
-        <translation>Проект с таким именем уже существует!</translation>
+        <translation>Этот проект уже используется!</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="20"/>
         <source>Project name must have at least 3 and below 30 symbols</source>
-        <translation>Имя проекта должно состоять как минимум из 3 и не более 30 символов</translation>
+        <translation>Имя проекта должно варьироваться между 3 и 30 символами</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="22"/>
         <source>Invalid issue name length</source>
-        <translation>Некорректная длина имени задачи</translation>
+        <translation>Неверная длина имени задачи</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="24"/>
         <source>Invalid issue description length</source>
-        <translation>Некорректная длина описания задачи</translation>
+        <translation>Неверная длина описани</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="26"/>
         <source>Estimate must have positive length</source>
-        <translation>Оценка может быть только положительной</translation>
+        <translation>Оценка времени должна быть положительной</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="28"/>
         <source>Project doesn&apos;t exists</source>
-        <translation>Выбранный проект не существует</translation>
+        <translation>Проект не существует</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="30"/>
         <source>Save error(try again latter)</source>
-        <translation>Ошибка сохранения (попробуйте позже)</translation>
+        <translation>Ошибка сохранения(попробуйте снова позже)</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="32"/>
@@ -107,7 +99,7 @@
     <message>
         <location filename="resources/js/Constants.js" line="34"/>
         <source>No such users</source>
-        <translation>Нет совпадений</translation>
+        <translation>Пользователи не найдены</translation>
     </message>
     <message>
         <location filename="resources/js/Constants.js" line="36"/>
@@ -125,16 +117,12 @@
     <message>
         <location filename="resources/qml/IssuePage.qml" line="30"/>
         <source>Resolve issue</source>
-        <translation>Решить</translation>
+        <translation>Решить задачу</translation>
     </message>
     <message>
         <location filename="resources/qml/IssuePage.qml" line="36"/>
         <source>Open issue</source>
         <translation>Открыть задачу</translation>
-    </message>
-    <message>
-        <source>Issue deatils</source>
-        <translation type="vanished">Детали задачи</translation>
     </message>
     <message>
         <location filename="resources/qml/IssuePage.qml" line="136"/>
@@ -147,69 +135,69 @@
         <translation> часов</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="183"/>
+        <location filename="resources/qml/IssuePage.qml" line="184"/>
         <source>Log work</source>
         <translation>Зарегистрировать время</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="188"/>
+        <location filename="resources/qml/IssuePage.qml" line="189"/>
         <source>Re-estimate</source>
         <translation>Переоценить</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="201"/>
+        <location filename="resources/qml/IssuePage.qml" line="202"/>
         <source>Project</source>
         <translation>Проект</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="210"/>
+        <location filename="resources/qml/IssuePage.qml" line="211"/>
         <source>Created</source>
-        <translation>Создано</translation>
+        <translation>Создан</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="218"/>
+        <location filename="resources/qml/IssuePage.qml" line="219"/>
         <source>Creator</source>
         <translation>Создатель</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="226"/>
+        <location filename="resources/qml/IssuePage.qml" line="227"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="239"/>
+        <location filename="resources/qml/IssuePage.qml" line="240"/>
         <source>Assignee</source>
-        <translation>Назначен</translation>
+        <translation>Исполнитель</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="243"/>
+        <location filename="resources/qml/IssuePage.qml" line="244"/>
         <source>&lt;empty&gt;</source>
-        <translation>&lt;не задано&gt;</translation>
+        <translation>&lt;пусто&gt;</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="255"/>
+        <location filename="resources/qml/IssuePage.qml" line="256"/>
         <source>Email</source>
-        <translation>Электронная почта</translation>
+        <translation>Эмейл</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="274"/>
+        <location filename="resources/qml/IssuePage.qml" line="275"/>
         <source>Assigned successfully</source>
-        <translation>Назначено успешно</translation>
+        <translation>Назначен успешно</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="325"/>
+        <location filename="resources/qml/IssuePage.qml" line="326"/>
         <source>Estimate</source>
         <translation>Оценка</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="355"/>
+        <location filename="resources/qml/IssuePage.qml" line="356"/>
         <source>This function will be implemented in next releases</source>
         <translation>Эта функция будет реализована в следующих релизах</translation>
     </message>
     <message>
-        <location filename="resources/qml/IssuePage.qml" line="368"/>
+        <location filename="resources/qml/IssuePage.qml" line="369"/>
         <source>Log</source>
-        <translation>Регистрация времени</translation>
+        <translation>Зарегистрировать время</translation>
     </message>
 </context>
 <context>
@@ -240,11 +228,7 @@
     <message>
         <location filename="resources/qml/MainPage.qml" line="55"/>
         <source>Created</source>
-        <translation>Создано</translation>
-    </message>
-    <message>
-        <source>Username/email</source>
-        <translation type="vanished">Имя пользователя/email</translation>
+        <translation>Создан</translation>
     </message>
     <message>
         <location filename="resources/qml/MainPage.qml" line="155"/>
@@ -264,12 +248,12 @@
     <message>
         <location filename="resources/qml/MainPage.qml" line="187"/>
         <source>Estimated</source>
-        <translation>Оценено</translation>
+        <translation>Оценка</translation>
     </message>
     <message>
         <location filename="resources/qml/MainPage.qml" line="188"/>
         <source>Real</source>
-        <translation>Существует</translation>
+        <translation>Настоящее</translation>
     </message>
     <message>
         <location filename="resources/qml/MainPage.qml" line="191"/>
@@ -287,6 +271,11 @@
         <translation>Мои проекты</translation>
     </message>
     <message>
+        <location filename="resources/qml/MainPage.qml" line="329"/>
+        <source>Remove</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
         <location filename="resources/qml/MainPage.qml" line="373"/>
         <source>My activity</source>
         <translation>Моя активность</translation>
@@ -299,7 +288,7 @@
     <message>
         <location filename="resources/qml/MainPage.qml" line="397"/>
         <source>Created issues: </source>
-        <translation>Созданые задачи: </translation>
+        <translation>Создано задач: </translation>
     </message>
     <message>
         <location filename="resources/qml/MainPage.qml" line="426"/>
@@ -309,12 +298,12 @@
     <message>
         <location filename="resources/qml/MainPage.qml" line="440"/>
         <source>Assigned features: </source>
-        <translation>Назначеные фичи: </translation>
+        <translation>Назначены функции: </translation>
     </message>
     <message>
         <location filename="resources/qml/MainPage.qml" line="452"/>
         <source>Assigned bugs: </source>
-        <translation>Назначеные баги: </translation>
+        <translation>Назначенные баги: </translation>
     </message>
     <message>
         <location filename="resources/qml/MainPage.qml" line="481"/>
@@ -322,26 +311,9 @@
         <translation>Графики</translation>
     </message>
     <message>
-        <source>No messages yet</source>
-        <translation type="vanished">Пока сообщений нет</translation>
-    </message>
-    <message>
-        <location filename="resources/qml/MainPage.qml" line="329"/>
-        <source>Remove</source>
-        <translation>Удалить</translation>
-    </message>
-    <message>
-        <source>Conversations</source>
-        <translation type="vanished">Диалоги</translation>
-    </message>
-    <message>
         <location filename="resources/qml/MainPage.qml" line="486"/>
         <source>Dashboard</source>
         <translation>Панель</translation>
-    </message>
-    <message>
-        <source>My tasks</source>
-        <translation type="vanished">Мои задачи</translation>
     </message>
 </context>
 <context>
@@ -360,12 +332,12 @@
     <message>
         <location filename="resources/qml/RegistrationPage.qml" line="47"/>
         <source>Your name</source>
-        <translation>Имя</translation>
+        <translation>Ваше имя</translation>
     </message>
     <message>
         <location filename="resources/qml/RegistrationPage.qml" line="58"/>
         <source>Email</source>
-        <translation>Электронная почта</translation>
+        <translation>Эмейл</translation>
     </message>
     <message>
         <location filename="resources/qml/RegistrationPage.qml" line="69"/>
@@ -385,11 +357,7 @@
     <message>
         <location filename="resources/qml/RegistrationPage.qml" line="126"/>
         <source>You successfully registered! Sign in using you email and password data</source>
-        <translation>Вы успешно зарегистрировались! Войдите, используя свои регистрационные данные</translation>
-    </message>
-    <message>
-        <source>Complete</source>
-        <translation type="vanished">Завершено</translation>
+        <translation>Вы успешно зарегистрировались! Войдите, используя ваш эмейл и пароль</translation>
     </message>
 </context>
 <context>
@@ -402,7 +370,7 @@
     <message>
         <location filename="resources/qml/ServerCheckingPage.qml" line="17"/>
         <source>Connected</source>
-        <translation>Соединение установлено</translation>
+        <translation>Соединено</translation>
     </message>
     <message>
         <location filename="resources/qml/ServerCheckingPage.qml" line="24"/>
@@ -410,13 +378,9 @@
         <translation>Ошибка соединения</translation>
     </message>
     <message>
-        <source>Complete</source>
-        <translation type="vanished">Завершено</translation>
-    </message>
-    <message>
         <location filename="resources/qml/ServerCheckingPage.qml" line="61"/>
         <source>Dmitry Plotnikov, build Qt 5.12 (QtQuick 2.12)</source>
-        <translation></translation>
+        <translation>Дмитрий Плотников, сборка Qt 5.12 (QtCuick 2.12)</translation>
     </message>
 </context>
 <context>
@@ -425,11 +389,6 @@
         <location filename="resources/qml/Tasks.qml" line="25"/>
         <source>Issues</source>
         <translation>Задачи</translation>
-    </message>
-    <message>
-        <location filename="resources/qml/Tasks.qml" line="86"/>
-        <source>Search</source>
-        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="resources/qml/Tasks.qml" line="48"/>
@@ -452,12 +411,12 @@
     <message>
         <location filename="resources/qml/Tasks.qml" line="61"/>
         <source>Open</source>
-        <translation>Открыто</translation>
+        <translation>Открытые</translation>
     </message>
     <message>
         <location filename="resources/qml/Tasks.qml" line="61"/>
         <source>Resolved</source>
-        <translation>Решено</translation>
+        <translation>Решенные</translation>
     </message>
     <message>
         <location filename="resources/qml/Tasks.qml" line="66"/>
@@ -472,12 +431,29 @@
     <message>
         <location filename="resources/qml/Tasks.qml" line="70"/>
         <source>Created by me</source>
-        <translation>Соданы мной</translation>
+        <translation>Созданы мной</translation>
+    </message>
+    <message>
+        <location filename="resources/qml/Tasks.qml" line="76"/>
+        <location filename="resources/qml/Tasks.qml" line="260"/>
+        <source>Type</source>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="resources/qml/Tasks.qml" line="80"/>
         <source>Feature</source>
         <translation>Новая функция</translation>
+    </message>
+    <message>
+        <location filename="resources/qml/Tasks.qml" line="80"/>
+        <location filename="resources/qml/Tasks.qml" line="273"/>
+        <source>Bug</source>
+        <translation>Баг</translation>
+    </message>
+    <message>
+        <location filename="resources/qml/Tasks.qml" line="86"/>
+        <source>Search</source>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="resources/qml/Tasks.qml" line="90"/>
@@ -507,7 +483,7 @@
     <message>
         <location filename="resources/qml/Tasks.qml" line="240"/>
         <source>Estimate(in hours)</source>
-        <translation>Оценка (в часах)</translation>
+        <translation>Оценка(в часах)</translation>
     </message>
     <message>
         <location filename="resources/qml/Tasks.qml" line="244"/>
@@ -515,21 +491,9 @@
         <translation>Ноль для бесконечности</translation>
     </message>
     <message>
-        <location filename="resources/qml/Tasks.qml" line="76"/>
-        <location filename="resources/qml/Tasks.qml" line="260"/>
-        <source>Type</source>
-        <translation>Тип</translation>
-    </message>
-    <message>
         <location filename="resources/qml/Tasks.qml" line="269"/>
         <source>New feature</source>
         <translation>Новая функция</translation>
-    </message>
-    <message>
-        <location filename="resources/qml/Tasks.qml" line="80"/>
-        <location filename="resources/qml/Tasks.qml" line="273"/>
-        <source>Bug</source>
-        <translation>Баг</translation>
     </message>
     <message>
         <location filename="resources/qml/Tasks.qml" line="280"/>
